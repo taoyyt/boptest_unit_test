@@ -46,20 +46,35 @@ model BuildingControl
       min=273.15 + 15))
                  "overwrite for supply air temperature for heating"
     annotation (Placement(transformation(extent={{-38,-14},{-50,-2}})));
+<<<<<<< HEAD
   IBPSA.Utilities.IO.SignalExchange.Read readTzone(
+=======
+  IBPSA.Utilities.IO.SignalExchange.Read read_Tzone(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
     description="Zone air temperature",
     KPIs=IBPSA.Utilities.IO.SignalExchange.SignalTypes.SignalsForKPIs.AirZoneTemperature,
     y(unit="K")) "Read zone air temperature"
     annotation (Placement(transformation(extent={{62,50},{74,62}})));
 
+<<<<<<< HEAD
   IBPSA.Utilities.IO.SignalExchange.Read readTsupsetpoint(
+=======
+  IBPSA.Utilities.IO.SignalExchange.Read read_T_sup_setpoint(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
     description="Supply air temperature setpoint",
     KPIs=IBPSA.Utilities.IO.SignalExchange.SignalTypes.SignalsForKPIs.None,
     y(unit="K")) "read supply air setpoint"
     annotation (Placement(transformation(extent={{-58,-14},{-70,-2}})));
+<<<<<<< HEAD
   IBPSA.Utilities.IO.SignalExchange.Overwrite OverCO2setpoint(description=
         "Indoor CO2 concentration setpoint", u(min=400, max=1000))
     "Overwrite CO2 setpoint [ppm]" annotation (Placement(transformation(
+=======
+  IBPSA.Utilities.IO.SignalExchange.Overwrite Over_CO2_setpoint(description=
+        "Indoor CO2 concentration setpoint", u(min=400, max=1000))
+    "Overwrite CO2 setpoint [ppm]"          annotation (Placement(
+        transformation(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
         extent={{-8,-8},{8,8}},
         rotation=-90,
         origin={-208,112})));
@@ -87,6 +102,7 @@ equation
           {170,-53},{175.3,-53}}, color={0,0,127}));
   connect(veAirSp.y, overTsup.u)
     annotation (Line(points={{-34.8,-8},{-36.8,-8}}, color={0,0,127}));
+<<<<<<< HEAD
   connect(Ti.T, readTzone.u)
     annotation (Line(points={{54,56},{60.8,56}}, color={0,0,127}));
   connect(readTzone.y, conPIDrad.u_m) annotation (Line(points={{74.6,56},{78,56},
@@ -98,6 +114,19 @@ equation
   connect(stpCO2.y, OverCO2setpoint.u) annotation (Line(points={{-217,142},{-208,
           142},{-208,121.6}}, color={0,0,127}));
   connect(OverCO2setpoint.y, conPIDfan.u_s) annotation (Line(points={{-208,
+=======
+  connect(Ti.T, read_Tzone.u)
+    annotation (Line(points={{54,56},{60.8,56}}, color={0,0,127}));
+  connect(read_Tzone.y, conPIDrad.u_m) annotation (Line(points={{74.6,56},{78,
+          56},{78,-56},{108,-56},{108,-53.6}}, color={0,0,127}));
+  connect(overTsup.y, read_T_sup_setpoint.u)
+    annotation (Line(points={{-50.6,-8},{-56.8,-8}}, color={0,0,127}));
+  connect(read_T_sup_setpoint.y, conPIDcoil.u_s)
+    annotation (Line(points={{-70.6,-8},{-74.4,-8}}, color={0,0,127}));
+  connect(stpCO2.y, Over_CO2_setpoint.u) annotation (Line(points={{-217,142},{
+          -208,142},{-208,121.6}}, color={0,0,127}));
+  connect(Over_CO2_setpoint.y, conPIDfan.u_s) annotation (Line(points={{-208,
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
           103.2},{-208,82},{-196,82}}, color={0,0,127}));
   annotation (
     experiment(StopTime=2678400, Interval=600),

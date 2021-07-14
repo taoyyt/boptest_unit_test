@@ -22,6 +22,7 @@ def get_config():
         
     config = {
     # Enter configuration information
+<<<<<<< HEAD
     'name'     : 'single_zone_commercial',
     'fmupath'  : 'models/wrapped.fmu',
     'step'     : 3600,
@@ -31,4 +32,14 @@ def get_config():
                   'time_period': None }
     }
 
+=======
+    'fmupath'  : 'models/wrapped.fmu',
+    'step'     : 3600,
+    'horizon'  : 86400,
+    'interval' : 3600
+    'scenario' : {'electricity_price':'constant',
+                  'time_period':None}
+    }
+    
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
     return config

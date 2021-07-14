@@ -50,10 +50,18 @@ class TestCase(object):
         # Get input and output meta-data
         self.inputs_metadata = self._get_var_metadata(self.fmu, self.input_names, inputs=True)
         self.outputs_metadata = self._get_var_metadata(self.fmu, self.output_names)
+<<<<<<< HEAD
+=======
+        # Initialize simulation data arrays
+        self.__initilize_data()
+        # Instantiate a KPI calculator for the test case
+        self.cal = KPI_Calculator(testcase=self)
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
         # Set default communication step
         self.set_step(con['step'])
         # Set default forecast parameters
         self.set_forecast_parameters(con['horizon'], con['interval'])
+<<<<<<< HEAD
         # Initialize simulation data arrays
         self.__initilize_data()
         # Set default fmu simulation options
@@ -62,6 +70,13 @@ class TestCase(object):
         self.options['CVode_options']['store_event_points'] = False
         # Results filtering for pyfmi
         self.options['filter'] = self.output_names + self.input_names
+=======
+        # Set default price scenario
+        self.set_scenario(con['scenario'])
+        # Set default fmu simulation options
+        self.options = self.fmu.simulate_options()
+        self.options['CVode_options']['rtol'] = 1e-6
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
         # Assign initial testing time
         self.initial_time = 0
         # Set initial fmu simulation start
@@ -69,10 +84,13 @@ class TestCase(object):
         self.initialize_fmu = True
         self.options['initialize'] = self.initialize_fmu
         self.elapsed_control_time = []
+<<<<<<< HEAD
         # Instantiate a KPI calculator for the test case
         self.cal = KPI_Calculator(testcase=self)
         # Set default scenario
         self.set_scenario(con['scenario'])
+=======
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
 
     def __initilize_data(self):
         '''Initializes objects for simulation data storage.
@@ -123,11 +141,17 @@ class TestCase(object):
 
         # Set fmu initialization option
         self.options['initialize'] = self.initialize_fmu
+<<<<<<< HEAD
         # Set sample rate
         self.options['ncp'] = int((end_time-start_time)/30)
         # Simulate fmu
         try:
             res = self.fmu.simulate(start_time = start_time,
+=======
+        # Simulate fmu
+        try:
+             res = self.fmu.simulate(start_time = start_time,
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
                                      final_time = end_time,
                                      options=self.options,
                                      input=input_object)

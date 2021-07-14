@@ -427,13 +427,21 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
       redeclare package Medium = Water,
       m_flow_nominal=m2_flow_nominal)
       annotation (Placement(transformation(extent={{94,-82},{74,-62}})));
+<<<<<<< HEAD
     IBPSA.Utilities.IO.SignalExchange.Overwrite OverFanexhaust(description=
+=======
+    IBPSA.Utilities.IO.SignalExchange.Overwrite OverFan_exhaust(description=
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
           "Fan speed control signal", u(
         min=0,
         max=1,
         unit="1")) "Overwirte for fan speed control signal"
       annotation (Placement(transformation(extent={{-34,62},{-14,82}})));
+<<<<<<< HEAD
     IBPSA.Utilities.IO.SignalExchange.Overwrite OverFansup(description=
+=======
+    IBPSA.Utilities.IO.SignalExchange.Overwrite OverFan_sup(description=
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
           "fan speed control signal", u(
         min=0,
         max=1,
@@ -442,7 +450,11 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
           extent={{8,-8},{-8,8}},
           rotation=90,
           origin={-60,52})));
+<<<<<<< HEAD
     IBPSA.Utilities.IO.SignalExchange.Read readTsupair(
+=======
+    IBPSA.Utilities.IO.SignalExchange.Read read_T_sup_air(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
       KPIs=IBPSA.Utilities.IO.SignalExchange.SignalTypes.SignalsForKPIs.None,
       y(unit="K"),
       description="Supply air temperature") "Read supply air temperature"
@@ -450,7 +462,11 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
           extent={{7,-7},{-7,7}},
           rotation=90,
           origin={131,-65})));
+<<<<<<< HEAD
     IBPSA.Utilities.IO.SignalExchange.Read readTretair(
+=======
+    IBPSA.Utilities.IO.SignalExchange.Read read_T_ret_air(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
       KPIs=IBPSA.Utilities.IO.SignalExchange.SignalTypes.SignalsForKPIs.None,
       y(unit="K"),
       description="Return air temperature") "Read returrn air temperature"
@@ -461,7 +477,11 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
     Buildings.Fluid.Sensors.MassFlowRate senMasFlo(redeclare package Medium =
           Air)
       annotation (Placement(transformation(extent={{76,-52},{96,-32}})));
+<<<<<<< HEAD
     IBPSA.Utilities.IO.SignalExchange.Read readsupair(
+=======
+    IBPSA.Utilities.IO.SignalExchange.Read read__sup_air(
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
       KPIs=IBPSA.Utilities.IO.SignalExchange.SignalTypes.SignalsForKPIs.None,
       y(unit="kg/s"),
       description="Supply air mass flowrate") "Read supply air mass flow rate"
@@ -536,6 +556,7 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
             -72},{94,-72}}, color={0,127,255}));
     connect(senTemCoilIn.port_b, hex1.port_a2)
       annotation (Line(points={{74,-72},{68,-72},{68,-52}}, color={0,127,255}));
+<<<<<<< HEAD
     connect(fanEx.y, OverFanexhaust.y)
       annotation (Line(points={{10,52},{10,72},{-13,72}}, color={0,0,127}));
     connect(OverFanexhaust.u, y)
@@ -550,13 +571,33 @@ final parameter Modelica.SIunits.MassFlowRate m_flow_nominal_air=31
             {166,-80}}, color={0,0,127}));
     connect(senTemEx1.T, readTretair.u) annotation (Line(points={{-28,51},{-28,
             58},{16,58},{16,72},{34.8,72}}, color={0,0,127}));
+=======
+    connect(fanEx.y, OverFan_exhaust.y)
+      annotation (Line(points={{10,52},{10,72},{-13,72}}, color={0,0,127}));
+    connect(OverFan_exhaust.u, y)
+      annotation (Line(points={{-36,72},{-60,72},{-60,110}}, color={0,0,127}));
+    connect(y, OverFan_sup.u)
+      annotation (Line(points={{-60,110},{-60,61.6}}, color={0,0,127}));
+    connect(OverFan_sup.y, fanSu.y) annotation (Line(points={{-60,43.2},{-60,18},
+            {0,18},{0,-28}}, color={0,0,127}));
+    connect(senTemIn3.T, read_T_sup_air.u) annotation (Line(points={{118,-29},{
+            118,-20},{131,-20},{131,-56.6}}, color={0,0,127}));
+    connect(read_T_sup_air.y, Tsu) annotation (Line(points={{131,-72.7},{131,
+            -80},{166,-80}}, color={0,0,127}));
+    connect(senTemEx1.T, read_T_ret_air.u) annotation (Line(points={{-28,51},{
+            -28,58},{16,58},{16,72},{34.8,72}}, color={0,0,127}));
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
     connect(hex1.port_b1, senMasFlo.port_a)
       annotation (Line(points={{68,-40},{72,-40},{72,-42},{76,-42}},
                                                    color={0,127,255}));
     connect(senMasFlo.port_b, senTemIn3.port_a)
       annotation (Line(points={{96,-42},{102,-42},{102,-40},{108,-40}},
                                                     color={0,127,255}));
+<<<<<<< HEAD
     connect(senMasFlo.m_flow, readsupair.u)
+=======
+    connect(senMasFlo.m_flow, read__sup_air.u)
+>>>>>>> 8af2ca15271259698705d1abfc2d3b02b38478c7
       annotation (Line(points={{86,-31},{86,2},{90.8,2}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-160,
                 -100},{160,100}}), graphics={
